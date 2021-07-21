@@ -25,7 +25,7 @@
 #
 
 
-__version__='20181116'
+__version__='20210721'
 #__author__ = 'DD, tdw'
 
 
@@ -176,8 +176,6 @@ def Catphan_Analysis(data, results,actions):
     tmpcat.analyze(hu_tolerance=hut)
     
     # Also add the SeriesNumber (0020,0011) to the results (for Kubra)
-    #dicomkey = ["0020,0011", "SeriesNumber"]
-    #seriesnumber = wadwrapper_lib.readDICOMtag(dicomkey[0],dcmInfile,0)
     ds = dicom.dcmread(data.series_filelist[0][0])
     seriesnumber = ds.SeriesNumber
     results.addFloat('SeriesNumber',float(seriesnumber))
@@ -189,13 +187,7 @@ def Catphan_Analysis(data, results,actions):
     tmphu = tmpcat.ctp404.rois
     for key in tmphu.keys():
         results.addFloat('HU_'+key,float(tmphu[key].pixel_value))
-    
-    #old code:
-    #tmphu =  tmpcat.ctp404.hu_roi_vals
-    #for key in tmphu.keys():
-    #    results.addFloat('HU_'+key,float(tmphu[key]))
-
-    
+        
     results.addBool('HU Passed',bool(tmpcat.ctp404.passed_hu))
     results.addFloat('Uniformity index', float(tmpcat.ctp486.uniformity_index))
     results.addFloat('Integral non-uniformity',float(tmpcat.ctp486.integral_non_uniformity))
