@@ -135,14 +135,14 @@ def Catphan_Analysis(data, results,actions):
     hut = int(params['hu_tolerance'])
     
     try:
-        thickness_tol = params['thickness_tolerance']
+        thickness_tol = float(params['thickness_tolerance'])
     except:
         thickness_tol = 0.2 #default value in pylinac
         
     try:
-        scaling_tol = params['scaling_tolerance']
+        scaling_tol = float(params['scaling_tolerance'])
     except:
-        scaling_tol = 1 #default value in pylinac
+        scaling_tol = 1.0 #default value in pylinac
             
     addboundary = params['add_boundary']
     if addboundary == "True":
@@ -169,13 +169,27 @@ def Catphan_Analysis(data, results,actions):
                ccw = False
                boundaries = (0, 0.116, 0.182, 0.244, 0.294, 0.344, 0.396, 0.443, 0.488)
                
+            # replace nominal HU values with own baseline values
+           class CustomCTP404CP600(CTP404CP600):
+               roi_dist_mm = 58.7
+               roi_radius_mm = 5
+               roi_settings = {
+                    'Air': {'value': -964, 'angle': 90, 'distance': roi_dist_mm, 'radius': roi_radius_mm},
+                    'PMP': {'value': -169, 'angle': 60, 'distance': roi_dist_mm, 'radius': roi_radius_mm},
+                    'LDPE': {'value': -79, 'angle': 0, 'distance': roi_dist_mm, 'radius': roi_radius_mm},
+                    'Poly': {'value': -25, 'angle': -60, 'distance': roi_dist_mm, 'radius': roi_radius_mm},
+                    'Acrylic': {'value': 131, 'angle': -120, 'distance': roi_dist_mm, 'radius': roi_radius_mm},
+                    'Delrin': {'value': 347, 'angle': -180, 'distance': roi_dist_mm, 'radius': roi_radius_mm},
+                    'Teflon': {'value': 926, 'angle': 120, 'distance': roi_dist_mm, 'radius': roi_radius_mm},
+               }
+               
            class CustomCP600(CatPhan600):
                modules = {
-                   CTP404CP600: {'offset': 0},
+                   CustomCTP404CP600: {'offset': 0},
                    CTP486: {'offset': -160},
                    CTP515: {'offset': -110},
                    CustomCTP528: {'offset': -70},
-            }
+               }
            
            tmpcat = CustomCP600(dcmInfile)
            #tmpcat = pylinac.CatPhan600(dcmInfile)
