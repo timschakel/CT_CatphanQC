@@ -1,0 +1,26 @@
+{
+    "actions": {
+        "acqdatetime": {
+            "filters": {},
+            "params": {}
+        },
+        "Catphan_Analysis": {
+            "filters": {},
+            "params": {
+                "classifier": "False",
+                "version": "600",
+                "hu_tolerance": "20",
+                "add_boundary":"False",
+				"thickness_tolerance": "0.5",
+				"scaling_tolerance": "2"
+            }
+        }
+    },
+    "cfgformat": "20210811",
+    "comments": {
+        "author": "Tim Schakel",
+        "creator": " ",
+        "description": "Wrapperfile for the pylinac CatphanQC code",
+        "version": "20210811"
+    }
+}

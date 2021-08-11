@@ -25,7 +25,7 @@
 #
 
 
-__version__='20210721'
+__version__='20210811'
 #__author__ = 'DD, tdw'
 
 
@@ -133,7 +133,17 @@ def Catphan_Analysis(data, results,actions):
     else:
        classifier = False
     hut = int(params['hu_tolerance'])
-
+    
+    try:
+        thickness_tol = params['thickness_tolerance']
+    except:
+        thickness_tol = 0.2 #default value in pylinac
+        
+    try:
+        scaling_tol = params['scaling_tolerance']
+    except:
+        scaling_tol = 1 #default value in pylinac
+            
     addboundary = params['add_boundary']
     if addboundary == "True":
         _addBoundary(dcmInfile)
@@ -172,8 +182,8 @@ def Catphan_Analysis(data, results,actions):
         elif version == "604":
            tmpcat = pylinac.CatPhan604(dcmInfile)
 
-
-    tmpcat.analyze(hu_tolerance=hut)
+    #also include custom tolerances for thickness/scaling
+    tmpcat.analyze(hu_tolerance=hut,scaling_tolerance=scaling_tol,thickness_tolerance=thickness_tol)
     
     # Also add the SeriesNumber (0020,0011) to the results (for Kubra)
     ds = dicom.dcmread(data.series_filelist[0][0])
