@@ -1,0 +1,269 @@
+{
+    "comments": {
+        "author": "Tim Schakel",
+        "creator": "generate_config_json.py version 20200429",
+        "description": "CT Catphan"
+    },
+    "metaformat": "20200429",
+    "results": {
+        "AcquisitionDateTime": {
+            "constraint_period": 90,
+            "description": "date and time of acquisition",
+            "display_level": 2,
+            "display_name": "DateTime",
+            "display_position": 0,
+            "units": ""
+        },
+        "SeriesNumber": {
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 1,
+            "constraint_is_active": false,
+            "units": ""
+        },
+        "Slice Thickness Passed": {
+            "constraint_equals": "True",
+            "display_level": 2,
+            "display_position": 17
+        },
+        "Geometry Passed": {
+            "constraint_equals": "True",
+            "display_level": 2,
+            "display_position": 10
+        },
+        "Uniformity Passed": {
+            "constraint_equals": "True",
+            "display_level": 2,
+            "display_position": 12
+        },
+        "HU Passed": {
+            "constraint_equals": "True",
+            "display_level": 2,
+            "display_position": 2
+        },
+        "HU_Acrylic": {
+            "constraint_minlowhighmax": [
+                111,
+                126,
+                136,
+                151
+            ],
+            "description": " ",
+            "display_level": 2,
+            "display_name": "HU_Acrylic",
+            "units": "",
+            "display_position": 3
+        },
+        "HU_PMP": {
+            "constraint_minlowhighmax": [
+                -189,
+                -174,
+                -164,
+                -149
+            ],
+            "description": " ",
+            "display_level": 2,
+            "display_name": "HU_PMP",
+            "units": "",
+            "display_position": 7
+        },
+        "HU_Air": {
+            "constraint_minlowhighmax": [
+                -984,
+                -969,
+                -959,
+                -944
+            ],
+            "description": " ",
+            "display_level": 2,
+            "display_name": "HU_Air",
+            "units": "",
+            "display_position": 4
+        },
+        "HU_Teflon": {
+            "constraint_minlowhighmax": [
+                906,
+                921,
+                931,
+                946
+            ],
+            "description": " ",
+            "display_level": 2,
+            "display_name": "HU_Teflon",
+            "units": "",
+            "display_position": 9
+        },
+        "HU_LDPE": {
+            "constraint_minlowhighmax": [
+                -99,
+                -84,
+                -74,
+                -59
+            ],
+            "description": " ",
+            "display_level": 2,
+            "display_name": "HU_LDPE",
+            "units": "",
+            "display_position": 6
+        },
+        "HU_Poly": {
+            "constraint_minlowhighmax": [
+                -45,
+                -30,
+                -20,
+                -5
+            ],
+            "description": " ",
+            "display_level": 2,
+            "display_name": "HU_Poly",
+            "units": "",
+            "display_position": 8
+        },
+        "HU_Delrin": {
+            "constraint_minlowhighmax": [
+                327,
+                342,
+                352,
+                367
+            ],
+            "description": " ",
+            "display_level": 2,
+            "display_name": "HU_Delrin",
+            "units": "",
+            "display_position": 5
+        },
+        "Geometric Line Average (mm)": {
+            "constraint_minlowhighmax": [
+                48,
+                49.5,
+                50.5,
+                52
+            ],
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 11,
+            "constraint_is_active": true,
+            "units": ""
+        },
+        "Integral non-uniformity": {
+            "constraint_minlowhighmax": [
+                -0.0025,
+                -0.00125,
+                0.00125,
+                0.0025
+            ],
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 13,
+            "constraint_is_active": true,
+            "units": ""
+        },
+        "Low contrast visibility": {
+            "constraint_minlowhighmax": [
+                7.5,
+                9,
+                11,
+                12.5
+            ],
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 15,
+            "constraint_is_active": true,
+            "units": ""
+        },
+        "MTF 50 (lp/mm)": {
+            "constraint_minlowhighmax": [
+                0.2824,
+                0.3024,
+                0.3424,
+                0.3624
+            ],
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 16,
+            "constraint_is_active": true,
+            "units": ""
+        },
+        "Slice Thickness (mm)": {
+            "constraint_minlowhighmax": [
+                1.5,
+                1.9,
+                2.1,
+                2.5
+            ],
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 18,
+            "constraint_is_active": true,
+            "units": ""
+        },
+        "Uniformity index": {
+            "constraint_minlowhighmax": [
+                -0.5,
+                -0.25,
+                0.25,
+                0.5
+            ],
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 14,
+            "constraint_is_active": true,
+            "units": ""
+        },
+        "hu": {
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 2,
+            "constraint_is_active": false,
+            "units": ""
+        },
+        "linearity": {
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 2,
+            "constraint_is_active": false,
+            "units": ""
+        },
+        "prof": {
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 2,
+            "constraint_is_active": false,
+            "units": ""
+        },
+        "rmtf": {
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 2,
+            "constraint_is_active": false,
+            "units": ""
+        },
+        "sp": {
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 2,
+            "constraint_is_active": false,
+            "units": ""
+        },
+        "un": {
+            "description": "",
+            "display_level": 2,
+            "display_name": "",
+            "display_position": 2,
+            "constraint_is_active": false,
+            "units": ""
+        }
+    }
+}
