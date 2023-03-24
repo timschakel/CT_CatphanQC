@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/home/waduser/Envs/p39/bin/python3.9
+### /usr/bin/env python
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -22,7 +23,7 @@
 #
 # Changelog:
 #
-# runfile('/nfs/arch11/researchData/USER/tschakel/projects/wadqc/QAtests/CT_CATPHAN/CT_CatphanQC/Catphan_umcu_wadwrapper.py', args='-r results.json -c Config/dcm_series/ct_catphan600.json -d /nfs/arch11/researchData/USER/tschakel/projects/wadqc/QAtests/CT_CATPHAN/CT_CatphanQC/data1_NUG', wdir='/nfs/arch11/researchData/USER/tschakel/projects/wadqc/QAtests/CT_CATPHAN/CT_CatphanQC')
+# runfile('/smb/user/tschakel/BLD_RT_RESEARCH_DATA/USER/tschakel/projects/wadqc/QAtests/CT_CATPHAN/CT_CatphanQC/Catphan_umcu_wadwrapper.py', args='-r results.json -c Config/dcm_series/ct_catphan600.json -d /smb/user/tschakel/BLD_RT_RESEARCH_DATA/USER/tschakel/projects/wadqc/QAtests/CT_CATPHAN/CT_CatphanQC/data/data1_NUG', wdir='/smb/user/tschakel/BLD_RT_RESEARCH_DATA/USER/tschakel/projects/wadqc/QAtests/CT_CATPHAN/CT_CatphanQC')
 
 
 __version__='20210811'
@@ -132,8 +133,12 @@ def Catphan_Analysis(data, results,actions):
        classifier = True
     else:
        classifier = False
-    hut = int(params['hu_tolerance'])
-    
+
+    try:
+        hut = int(params['hu_tolerance'])
+    except:
+        hut = 40 #default value in pylinac
+        
     try:
         thickness_tol = float(params['thickness_tolerance'])
     except:
@@ -209,7 +214,6 @@ def Catphan_Analysis(data, results,actions):
     'HU Linearity ROI'
     
     # change to accomodate update in pylinac (hu_roi_vals no longer exists in new versions)
-    breakpoint()
     tmphu = tmpcat.ctp404.rois
     for key in tmphu.keys():
         results.addFloat('HU_'+key,float(tmphu[key].pixel_value))
