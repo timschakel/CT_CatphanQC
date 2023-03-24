@@ -163,10 +163,10 @@
         },
         "Low contrast visibility": {
             "constraint_minlowhighmax": [
-                7.5,
-                9,
-                11,
-                12.5
+                6.5,
+                8,
+                10,
+                11.5
             ],
             "description": "",
             "display_level": 2,
@@ -177,10 +177,10 @@
         },
         "MTF 50 (lp/mm)": {
             "constraint_minlowhighmax": [
-                0.2824,
-                0.3024,
-                0.3424,
-                0.3624
+                0.35,
+                0.37,
+                0.41,
+                0.43
             ],
             "description": "",
             "display_level": 2,

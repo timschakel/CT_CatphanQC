@@ -22,7 +22,7 @@
 #
 # Changelog:
 #
-#
+# runfile('/nfs/arch11/researchData/USER/tschakel/projects/wadqc/QAtests/CT_CATPHAN/CT_CatphanQC/Catphan_umcu_wadwrapper.py', args='-r results.json -c Config/dcm_series/ct_catphan600.json -d /nfs/arch11/researchData/USER/tschakel/projects/wadqc/QAtests/CT_CATPHAN/CT_CatphanQC/data1_NUG', wdir='/nfs/arch11/researchData/USER/tschakel/projects/wadqc/QAtests/CT_CATPHAN/CT_CatphanQC')
 
 
 __version__='20210811'
@@ -74,7 +74,7 @@ if not 'MPLCONFIGDIR' in os.environ:
         os.environ['MPLCONFIGDIR'] = "/tmp/.matplotlib" # if this folder already exists it must be accessible by the owner of WAD_Processor 
 
 import matplotlib
-matplotlib.use('Agg') # Force matplotlib to not use any Xwindows backend.
+#matplotlib.use('Agg') # Force matplotlib to not use any Xwindows backend.
 
 
 
@@ -181,6 +181,7 @@ def Catphan_Analysis(data, results,actions):
                     'Acrylic': {'value': 131, 'angle': -120, 'distance': roi_dist_mm, 'radius': roi_radius_mm},
                     'Delrin': {'value': 347, 'angle': -180, 'distance': roi_dist_mm, 'radius': roi_radius_mm},
                     'Teflon': {'value': 926, 'angle': 120, 'distance': roi_dist_mm, 'radius': roi_radius_mm},
+                    'Vial': {'value': 0, 'angle': -90, 'distance': roi_dist_mm, 'radius': roi_radius_mm - 1},
                }
                
            class CustomCP600(CatPhan600):
@@ -208,6 +209,7 @@ def Catphan_Analysis(data, results,actions):
     'HU Linearity ROI'
     
     # change to accomodate update in pylinac (hu_roi_vals no longer exists in new versions)
+    breakpoint()
     tmphu = tmpcat.ctp404.rois
     for key in tmphu.keys():
         results.addFloat('HU_'+key,float(tmphu[key].pixel_value))
