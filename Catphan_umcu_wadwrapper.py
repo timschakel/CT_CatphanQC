@@ -1,5 +1,5 @@
 #!/home/waduser/Envs/p39/bin/python3.9
-### /usr/bin/env python
+
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -32,7 +32,7 @@ __version__='20210811'
 
 
 import sys,os
-
+print(sys.version) #check if correct python environment is executing
 try:
     import pydicom as dicom
     from pydicom import tag
@@ -75,10 +75,7 @@ if not 'MPLCONFIGDIR' in os.environ:
         os.environ['MPLCONFIGDIR'] = "/tmp/.matplotlib" # if this folder already exists it must be accessible by the owner of WAD_Processor 
 
 import matplotlib
-#matplotlib.use('Agg') # Force matplotlib to not use any Xwindows backend.
-
-
-
+matplotlib.use('Agg') # Force matplotlib to not use any Xwindows backend.
 
 import pylinac
 import os
